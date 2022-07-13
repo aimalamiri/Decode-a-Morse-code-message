@@ -38,18 +38,27 @@ MORSE = {
   ' ' => ' '
 }.freeze
 
-# decoder
+# Decode a character
 def decode_char(code)
   MORSE.key(code)
 end
 
-# Decode word function
+# Decode a word
 def decode_word(word)
   text = ''
   word.split.each do |c|
     text += decode_char c
-  end 
-  return text
+  end
+  text
 end
 
-puts decode_word("-- -.--")
+# Decode a sentence
+def decode(sentence)
+  text = ''
+  sentence.split(/   /).each do |w|
+    text += "#{decode_word(w)} "
+  end
+  text
+end
+
+puts decode '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
