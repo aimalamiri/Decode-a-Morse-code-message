@@ -40,7 +40,7 @@ MORSE = {
 
 # Decode a character
 def decode_char(code)
-  MORSE.key(code)
+  MORSE.key(code).upcase
 end
 
 # Decode a word
